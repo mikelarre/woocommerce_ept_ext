@@ -15,6 +15,6 @@ class SaleOrder(models.Model):
                                          instance, partner, shipping_address,
                                          pricelist_id, fiscal_position,
                                          payment_term, payment_gateway)
-        catalog_id = instance.catalog_id.id
-        res.update({'catalog_id': catalog_id})
+        catalog_id = instance.order_catalog_id.id
+        res.update({'order_catalog_id': catalog_id})
         return res

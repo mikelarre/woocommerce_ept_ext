@@ -6,5 +6,5 @@ from odoo import api, fields, models, exceptions, _
 class woo_instance_ept(models.Model):
     _inherit = "woo.instance.ept"
 
-    catalog_id = fields.Many2one(
+    order_catalog_id = fields.Many2one(
         comodel_name='product.catalog.web', string='Import to Catalog')

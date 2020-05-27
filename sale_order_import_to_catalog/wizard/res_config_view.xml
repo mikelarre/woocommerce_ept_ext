@@ -9,13 +9,13 @@
                 <xpath expr="//div[@name='order_information']/div/div[5]" position="before">
                     <div class="col-12 col-lg-6 o_setting_box">
                         <div class="o_setting_right_pane">
-                            <label for="woo_catalog_id"/>
+                            <label for="woo_order_catalog_id"/>
                             <div class="text-muted">
                                 Set the catalog for woo orders
                             </div>
                             <div class="content-group">
                                 <div class="mt16">
-                                    <field name="woo_catalog_id" options="{'no_create': True}"
+                                    <field name="woo_order_catalog_id" options="{'no_create': True}"
                                            class="oe_inline"/>
                                 </div>
                             </div>

@@ -12,8 +12,9 @@ class woo_config_settings(models.TransientModel):
     @api.multi
     def onchange_woo_instance_id(self):
         instance = self.woo_instance_id or False
-        self.woo_order_catalog_id = instance and instance.catalog_id and \
-                                   instance.catalog_id or False
+        self.woo_order_catalog_id = instance and \
+                                    instance.woo_order_catalog_id and \
+                                    instance.woo_order_catalog_id or False
         return super().onchange_woo_instance_id
 
     @api.multi
@@ -22,6 +23,6 @@ class woo_config_settings(models.TransientModel):
         values = {}
         res = super(woo_config_settings, self).execute()
         if instance:
-            values['catalog_id'] = self.woo_catalog_id and \
-                                   self.woo_catalog_id.id or False
+            values['order_catalog_id'] = self.woo_order_catalog_id and \
+                                         self.woo_order_catalog_id.id or False
         return res
