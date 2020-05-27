@@ -9,7 +9,7 @@ class woo_config_settings(models.TransientModel):
     woo_order_catalog_id = fields.Many2one(
         comodel_name='product.catalog.web', string='Import to Catalog')
 
-    @api.multi
+    @api.onchange('woo_instance_id')
     def onchange_woo_instance_id(self):
         instance = self.woo_instance_id or False
         self.woo_order_catalog_id = instance and \
