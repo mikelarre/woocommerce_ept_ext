@@ -1,7 +1,6 @@
 # Copyright 2020 Mikel Arregi Etxaniz - AvanzOSC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 from odoo import api, fields, models, exceptions, _
-from odoo.addons import decimal_precision as dp
 
 
 class SaleOrder(models.Model):
@@ -15,6 +14,9 @@ class SaleOrder(models.Model):
                                          instance, partner, shipping_address,
                                          pricelist_id, fiscal_position,
                                          payment_term, payment_gateway)
-        payment_gateway = res.get('payment_gateway_id')
-        res.update({'payment_mode_id': payment_gateway.payment_mode_id.id})
+        payment_gateway_id = res.get('payment_gateway_id')
+        if payment_gateway_id:
+            payment_gateway = self.env['woo.payment.gateway'].browse(
+                payment_gateway_id)
+            res.update({'payment_mode_id': payment_gateway.payment_mode_id.id})
         return res
