@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="payment_mode_woo_payment_tree" model="ir.ui.view">
+            <field name="name">payment.mode.woo.payment.tree</field>
+            <field name="model">woo.payment.gateway</field>
+            <field name="inherit_id" ref="woo_commerce_ept.woo_payment_gateway_tree_view_ept"/>
+            <field name="arch" type="xml">
+                <field name="woo_instance_id" position="after">
+                    <field name="payment_mode_id"/>
+                </field>
+            </field>
+        </record>
+        <record id="payment_mode_woo_payment_form" model="ir.ui.view">
+            <field name="name">payment.mode.woo.payment.form</field>
+            <field name="model">woo.payment.gateway</field>
+            <field name="inherit_id" ref="woo_commerce_ept.woo_payment_gateway_form_view_ept"/>
+            <field name="arch" type="xml">
+                <field name="woo_instance_id" position="after">
+                    <field name="payment_mode_id"/>
+                </field>
+            </field>
+        </record>
+
+</odoo>

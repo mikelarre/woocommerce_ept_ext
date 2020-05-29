@@ -15,6 +15,6 @@ class SaleOrder(models.Model):
                                          instance, partner, shipping_address,
                                          pricelist_id, fiscal_position,
                                          payment_term, payment_gateway)
-        catalog_id = instance.order_catalog_id.id
-        res.update({'catalog_id': catalog_id})
+        payment_gateway = res.get('payment_gateway_id')
+        res.update({'payment_mode_id': payment_gateway.payment_mode_id.id})
         return res
